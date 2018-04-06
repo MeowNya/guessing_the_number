@@ -18,7 +18,6 @@ hidden_num = rand(1..n)
 print"Я загадал число\n"
 
 trying = n / 10
-
 if trying < 10
   trying = 10
 end
@@ -27,14 +26,15 @@ puts "Кол-во попыток #{trying}"
 
 while true do
   puts "Введите число: "
-  num = gets.chomp
+  user_input = gets.chomp
+  num = user_input.to_i
 
-  if num.is_integer? == false or num.to_i <= 0
+  if user_input.is_integer? == false or num <= 0
     puts "Введенно число неправильного формата"
     redo
   end
 
-  if num.to_i == hidden_num
+  if num == hidden_num
     puts "Вы угадали загаданное число #{hidden_num}! Победа!"
     break
   end
@@ -45,11 +45,12 @@ while true do
     break
   end
 
-  if num.to_i < hidden_num
+  if num < hidden_num
     puts "Введенное число #{num} меньше загаданного."
   else
-  puts "Введенное число #{num} больше загаданного."
+    puts "Введенное число #{num} больше загаданного."
   end
+
   puts "Осталось попыток #{trying}"
 
 end
