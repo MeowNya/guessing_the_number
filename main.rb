@@ -1,5 +1,6 @@
 require_relative 'string'
 
+
 def get_user_number()
   loop{
     print "Введите максимальное значение диапазона N(минимальное значение 3): "
@@ -25,12 +26,12 @@ end
 puts "Кол-во попыток #{trying}"
 
 while true do
-  puts "Введите число: "
+  puts 'Введите число:'
   user_input = gets.chomp
   num = user_input.to_i
 
-  if user_input.is_integer? == false or num <= 0
-    puts "Введенно число неправильного формата"
+  if user_input.is_integer? == false || num <= 0
+    puts 'Введенно число неправильного формата'
     redo
   end
 
@@ -40,7 +41,7 @@ while true do
   end
 
   trying -= 1
-  if trying == 0
+  if trying.zero?
     puts "Проигрыш! Загаданное число #{hidden_num}!"
     break
   end
